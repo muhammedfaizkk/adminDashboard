@@ -19,36 +19,59 @@ h6 {
 }
 
 /* Navbar Styles */
-.app-navbar {
+.navbarmain {
+  background-color: #063970;
+  color: white !important;
   padding: 15px 20px;
-  background-color: #343a40;
-  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.app-navbar .navbar-brand {
+.navbarmain .navbar-brand {
   font-size: 24px;
   font-weight: bold;
-  color: white;
+  color: white !important;
 }
 
-.app-navbar .navbar-nav .nav-link {
-  color: #adb5bd;
+.navbarmain .navbar-nav .nav-link {
+  color: #adb5bd !important;
+  transition: color 0.3s ease-in-out;
 }
 
-.app-navbar .navbar-nav .nav-link:hover {
-  color: white;
+.navbarmain .navbar-nav .nav-link:hover {
+  color: white !important;
 }
 
-.app-navbar .navbar-toggler {
+.navbarmain .navbar-toggler {
   border: none;
   background: none;
+  color: white !important;
+}
+
+/* Customizing the Navbar's Buttons */
+.navbarmain .search-button {
+  border: 2px solid white;
+  color: white;
+}
+
+.navbarmain .logout-button {
+  border: 2px solid red;
+  color: red;
+}
+
+.navbarmain .search-button:hover {
+  background-color: white;
+  color: #063970;
+}
+
+.navbarmain .logout-button:hover {
+  background-color: red;
   color: white;
 }
 
 /* Sidebar Styles */
 .sidebar {
   width: 250px;
-  background-color: #063970;
+  background-color: rgb(33, 37, 41);
   color: white;
   padding-top: 20px;
   position: fixed;
@@ -83,13 +106,6 @@ h6 {
   flex-grow: 1;
   min-height: 100vh;
   transition: margin-left 0.3s ease;
-}
-
-/* Toggle Button */
-.navbar-toggler {
-  border: none;
-  background: none;
-  color: white;
 }
 
 /* Button Styles */
@@ -155,11 +171,12 @@ h6 {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
+/* Logo Styles */
 .logo-img {
   width: 180px;
-  margin: 20px;
 }
-.logo-mobimg{
+
+.logo-mobimg {
   width: 120px;
 }
 
@@ -167,53 +184,14 @@ h6 {
 .login-container {
   max-width: 400px;
   margin: 50px auto;
-  background-color: white;
   padding: 30px;
+  background-color: white;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   animation: fadeInDown 0.5s ease;
 }
-.navbarmain{
-  background-color: #063970;
-  color: white !important;
-}
 
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsive Adjustments */
-@media (max-width: 992px) {
-  .sidebar {
-    width: 200px;
-  }
-
-  .main-content {
-    margin-left: 200px;
-  }
-}
-
+/* Responsive Styles */
 @media (max-width: 768px) {
   .sidebar {
     width: 100%;
@@ -223,15 +201,376 @@ h6 {
     /* Hide sidebar by default on mobile */
   }
 
+  .sidebar-container.sidebar-visible .sidebar {
+    display: block;
+    /* Show sidebar when toggled */
+  }
+
   .main-content {
     margin-left: 0;
   }
 
-  .app-navbar .navbar-toggler {
-    display: block;
-  }
-
-  .app-navbar .navbar-collapse {
+  .navbarmain .navbar-collapse {
     display: none;
   }
+
+  .navbar-collapse.show {
+    display: block !important;
+    /* Ensure it shows when toggled */
+  }
+
+  .navbar-brand {
+    margin-left: 10px;
+  }
 }
+
+@media (max-width: 576px) {
+  .navbarmain .navbar-brand {
+    font-size: 18px;
+  }
+
+  .navbarmain .search-button {
+    display: none;
+    /* Hide search button on very small screens */
+  }
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Sales Card Styles */
+.sales-card {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  width: 250px;
+  box-sizing: border-box;
+}
+
+.sales-card-title {
+  font-size: 18px;
+  color: #333;
+  margin: 0 0 10px;
+}
+
+.sales-card-value {
+  font-size: 24px;
+  color: #007bff;
+  margin: 0 0 10px;
+}
+
+.sales-card-description {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+
+/* Chart Styles */
+.chart {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  margin-top: 20px;
+}
+
+.chart-bubble {
+  position: absolute;
+  background-color: rgba(0, 123, 255, 0.5);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+.chart-bubble:hover {
+  transition: all 0.5s ease;
+  background: #428D92;
+}
+
+.chart-bubble:after {
+  position: absolute;
+  content: attr(data-label);
+  display: none;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding-top: 50%;
+  line-height: 1px;
+  font-size: 15px;
+  color: #fff;
+}
+
+.chart-bubble:hover:after {
+  display: block;
+}
+
+/* Graph Styles */
+.graph {
+  position: relative;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: calc(100% - 4%);
+  left: 4%;
+}
+
+.graph-barBack {
+  border-radius: 2px;
+  background: #DAE4EB;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.graph-bar {
+  background-color: var(--primary);
+  border-radius: 2px;
+  cursor: pointer;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 9999;
+  display: block;
+  height: var(--barHeight);
+  width: 0%;
+  transition: all 1s ease-out;
+}
+
+.graph-bar:hover {
+  transition: all 0.5s ease;
+  background: #428D92;
+}
+
+.graph-bar:after {
+  position: absolute;
+  content: attr(data-value);
+  display: none;
+  font-size: 12px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  line-height: var(--barHeight);
+  height: var(--barHeight);
+  padding: 0 10px;
+  margin-left: 5px;
+  left: 100%;
+  top: 0;
+}
+
+.graph-bar:hover:after {
+  display: block;
+}
+
+/* Lines for Charts */
+.lines {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
+  left: 0;
+  top: 0;
+}
+
+.lines-horz {
+  border-bottom: 1px dashed rgba(var(--borders), 0.4);
+  position: absolute;
+  width: 100%;
+  height: 0px;
+}
+
+.lines-horz:nth-of-type(1) {
+  top: 20%;
+}
+
+.lines-horz:nth-of-type(2) {
+  top: 40%;
+}
+
+.lines-horz:nth-of-type(3) {
+  top: 60%;
+}
+
+.lines-horz:nth-of-type(4) {
+  top: 80%;
+}
+
+.lines-vert {
+  border-right: 1px dashed rgba(var(--borders), 0.4);
+  position: absolute;
+  height: 100%;
+  width: 1px;
+}
+
+.lines-vert:nth-of-type(1) {
+  left: 20%;
+}
+
+.lines-vert:nth-of-type(2) {
+  left: 40%;
+}
+
+.lines-vert:nth-of-type(3) {
+  left: 60%;
+}
+
+.lines-vert:nth-of-type(4) {
+  left: 80%;
+}
+
+/* Variables */
+:root {
+  --barHeight: 20px;
+  --borders: #717D95;
+  --primary: #59BAC0;
+}
+
+/* Mixins */
+.transition {
+  transition: all 1s ease-out;
+}
+
+.transform {
+  transform: rotate(var(--degree));
+}
+
+.clearfix::before,
+.clearfix::after {
+  display: block;
+  content: " ";
+  clear: both;
+  zoom: 1;
+}
+
+
+
+.wrap {
+  margin: 0 auto;
+  padding: 50px;
+  max-width: 1200px;
+}
+
+.sales-cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  cursor: pointer;
+
+}
+.navbarmain .navbar-toggler {
+  border: none;
+  background: none;
+}
+
+.navbarmain .toggle-icon {
+  color: white; /* Set the color of the toggle icon */
+}
+
+.navbarmain .navbar-toggler:focus {
+  box-shadow: none; /* Remove focus outline */
+}
+
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling for touch devices */
+}
+
+/* Product Image */
+.dashproduct-image {
+  width: 50px; /* Adjust the width of the image */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 4px; /* Optional: rounded corners */
+  object-fit: cover; /* Ensure image covers the area without distortion */
+}
+
+
+.dashimage-previews {
+  display: flex;
+  gap: 10px; /* Space between images */
+  margin-top: 10px;
+}
+
+.dashimage-preview {
+  width: 100px; /* Adjust as needed */
+  height: 100px; /* Adjust as needed */
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.min-vh-100 {
+  min-height: 100vh;
+}
+
+.login-container {
+  background-color: #f5f5f5;
+}
+
+.login-card {
+  max-width: 400px;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.login-header {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.login-form-group .login-input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  transition: border-color 0.3s ease-in-out;
+  outline: none;
+  color: #333;
+}
+
+.login-input:focus {
+  border-color: #555;
+}
+
+.login-button {
+  background-color: #555;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.login-button:hover {
+  background-color: #333;
+}
+

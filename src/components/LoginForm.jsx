@@ -1,40 +1,35 @@
-import React, { useState } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import React from 'react';
+import { Container, Card, Form, Button } from 'react-bootstrap';
 
-function LoginForm() {
-  const [credentials, setCredentials] = useState({ username: '', password: '' });
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log('Login submitted:', credentials);
-  };
-
+const LoginForm = () => {
   return (
-    <div className="login-container">
-      <h2>Login</h2>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group>
-          <Form.Label>Username</Form.Label>
-          <Form.Control
-            type="text"
-            value={credentials.username}
-            onChange={(e) => setCredentials({ ...credentials, username: e.target.value })}
-          />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            value={credentials.password}
-            onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
-          />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Login
-        </Button>
-      </Form>
-    </div>
+    <Container className="login-container d-flex align-items-center justify-content-center min-vh-100">
+      <Card className="login-card p-4">
+        <h2 className="login-header text-center">Login</h2>
+        <Form className="login-form">
+          <Form.Group controlId="formUsername" className="login-form-group">
+            <Form.Control
+              type="text"
+              placeholder="Username"
+              required
+              className="login-input mb-3"
+            />
+          </Form.Group>
+          <Form.Group controlId="formPassword" className="login-form-group">
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              required
+              className="login-input mb-3"
+            />
+          </Form.Group>
+          <Button type="submit" variant="dark" className="login-button w-100">
+            Login
+          </Button>
+        </Form>
+      </Card>
+    </Container>
   );
-}
+};
 
 export default LoginForm;
